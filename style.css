@@ -1,0 +1,31 @@
+ 
+let score = 0;
+let time = 10;
+let gameStarted = false;
+
+const btn = document.getElementById("btn");
+const scoreText = document.getElementById("score");
+const timeText = document.getElementById("time");
+const result = document.getElementById("result");
+
+btn.addEventListener("click", () => {
+  if (!gameStarted) {
+    gameStarted = true;
+
+    let timer = setInterval(() => {
+      time--;
+      timeText.textContent = time;
+
+      if (time === 0) {
+        clearInterval(timer);
+        btn.disabled = true;
+        result.textContent = "🎯 Juego terminado. Tu puntaje fue: " + score;
+      }
+    }, 1000);
+  }
+
+  if (time > 0) {
+    score++;
+    scoreText.textContent = score;
+  }
+});
