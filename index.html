@@ -56,7 +56,7 @@ button:hover {
     <h2>Tiempo: <span id="time">10</span></h2>
   </div>
 
-  <button onclick="mostrarAnuncio()">CLICK</button>
+  <button onclick="jugar()">CLICK</button>
   <br>
   <button onclick="reiniciar()">Reiniciar</button>
 
@@ -69,8 +69,13 @@ var time = 10;
 var started = false;
 var timer;
 
-// FUNCIÓN DEL JUEGO
-function clickGame() {
+// FUNCIÓN PRINCIPAL
+function jugar() {
+
+  // 👉 mostrar anuncio SOLO en el clic 3
+  if (score === 2) {
+    window.open("https://www.profitablecpmratenetwork.com/uh19svq6cq?key=240ed26038799c4d38acdf2b6773b452");
+  }
 
   if (!started) {
     started = true;
@@ -93,128 +98,7 @@ function clickGame() {
   }
 }
 
-// FUNCIÓN DEL ANUNCIO
-function mostrarAnuncio() {
-  window.open("https://www.profitablecpmratenetwork.com/uh19svq6cq?key=240ed26038799c4d38acdf2b6773b452");
-  clickGame();
-}
-
-// REINICIAR JUEGO
-function reiniciar() {
-  clearInterval(timer);
-  score = 0;
-  time = 10;
-  started = false;
-
-  document.getElementById("score").innerText = 0;
-  document.getElementById("time").innerText = 10;
-  document.getElementById("result").innerText = "";
-}
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Click Game</title>
-
-<style>
-body {
-  margin: 0;
-  background: #0f0f0f;
-  color: white;
-  font-family: Arial;
-  text-align: center;
-}
-
-.container {
-  margin-top: 80px;
-}
-
-h1 {
-  color: #00ffcc;
-}
-
-button {
-  padding: 15px 30px;
-  font-size: 20px;
-  border: none;
-  border-radius: 10px;
-  background: #00ffcc;
-  cursor: pointer;
-  margin: 10px;
-}
-
-button:hover {
-  background: #00c9a3;
-}
-
-.stats {
-  margin: 20px;
-}
-
-#result {
-  margin-top: 20px;
-  font-size: 20px;
-}
-</style>
-
-</head>
-<body>
-
-<div class="container">
-  <h1>🔥 Click Game</h1>
-
-  <div class="stats">
-    <h2>Puntos: <span id="score">0</span></h2>
-    <h2>Tiempo: <span id="time">10</span></h2>
-  </div>
-
-  <button onclick="mostrarAnuncio()">CLICK</button>
-  <br>
-  <button onclick="reiniciar()">Reiniciar</button>
-
-  <p id="result"></p>
-</div>
-
-<script>
-var score = 0;
-var time = 10;
-var started = false;
-var timer;
-
-// FUNCIÓN DEL JUEGO
-function clickGame() {
-
-  if (!started) {
-    started = true;
-
-    timer = setInterval(function() {
-      time--;
-      document.getElementById("time").innerText = time;
-
-      if (time === 0) {
-        clearInterval(timer);
-        document.getElementById("result").innerText =
-          "🎯 Juego terminado. Puntos: " + score;
-      }
-    }, 1000);
-  }
-
-  if (time > 0) {
-    score++;
-    document.getElementById("score").innerText = score;
-  }
-}
-
-// FUNCIÓN DEL ANUNCIO
-function mostrarAnuncio() {
-  window.open("https://www.profitablecpmratenetwork.com/uh19svq6cq?key=240ed26038799c4d38acdf2b6773b452");
-  clickGame();
-}
-
-// REINICIAR JUEGO
+// REINICIAR
 function reiniciar() {
   clearInterval(timer);
   score = 0;
