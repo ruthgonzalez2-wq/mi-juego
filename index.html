@@ -1,20 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Juego</title>
+<title>Click Game</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+h1 {
+  color: #00ffcc;
+}
+
+button {
+  padding: 20px 40px;
+  font-size: 22px;
+  border: none;
+  border-radius: 10px;
+  background: #00ffcc;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00c9a3;
+}
+
+#score {
+  font-size: 30px;
+  margin-top: 20px;
+}
+</style>
+
 </head>
 <body>
 
-<h1>Click Game</h1>
-<button onclick="clickGame()">CLICK</button>
-<p id="score">0</p>
+<div class="container">
+  <h1>🔥 Click Game</h1>
+
+  <button onclick="clickGame()">CLICK</button>
+
+  <p id="score">0</p>
+</div>
 
 <script>
 var score = 0;
 
 function clickGame() {
-  score = score + 1;
+  score++;
   document.getElementById("score").innerText = score;
 }
 </script>
