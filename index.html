@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 h1 {
@@ -22,12 +22,13 @@ h1 {
 }
 
 button {
-  padding: 20px 40px;
-  font-size: 22px;
+  padding: 15px 30px;
+  font-size: 20px;
   border: none;
   border-radius: 10px;
   background: #00ffcc;
   cursor: pointer;
+  margin: 10px;
 }
 
 button:hover {
@@ -56,6 +57,8 @@ button:hover {
   </div>
 
   <button onclick="clickGame()">CLICK</button>
+  <br>
+  <button onclick="reiniciar()">Reiniciar</button>
 
   <p id="result"></p>
 </div>
@@ -64,13 +67,14 @@ button:hover {
 var score = 0;
 var time = 10;
 var started = false;
+var timer;
 
 function clickGame() {
 
   if (!started) {
     started = true;
 
-    var timer = setInterval(function() {
+    timer = setInterval(function() {
       time--;
       document.getElementById("time").innerText = time;
 
@@ -86,6 +90,17 @@ function clickGame() {
     score++;
     document.getElementById("score").innerText = score;
   }
+}
+
+function reiniciar() {
+  clearInterval(timer);
+  score = 0;
+  time = 10;
+  started = false;
+
+  document.getElementById("score").innerText = 0;
+  document.getElementById("time").innerText = 10;
+  document.getElementById("result").innerText = "";
 }
 </script>
 
