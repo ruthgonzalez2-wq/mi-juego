@@ -1,6 +1,6 @@
-let score = 0;
-let time = 10;
-let started = false;
+var score = 0;
+var time = 10;
+var started = false;
 
 var btn = document.getElementById("btn");
 var scoreText = document.getElementById("score");
