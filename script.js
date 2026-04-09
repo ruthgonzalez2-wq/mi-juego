@@ -1,39 +1,31 @@
- 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
-  text-align: center;
-}
+let score = 0;
+let time = 10;
+let started = false;
 
-.container {
-  margin-top: 80px;
-}
+var btn = document.getElementById("btn");
+var scoreText = document.getElementById("score");
+var timeText = document.getElementById("time");
+var result = document.getElementById("result");
 
-h1 {
-  color: #00ffcc;
-}
+btn.onclick = function() {
 
-button {
-  padding: 20px 40px;
-  font-size: 22px;
-  background: #00ffcc;
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  margin-top: 20px;
-}
+  if (!started) {
+    started = true;
 
-button:hover {
-  background: #00c9a3;
-}
+    var timer = setInterval(function() {
+      time--;
+      timeText.innerText = time;
 
-.stats {
-  margin: 20px;
-}
+      if (time === 0) {
+        clearInterval(timer);
+        btn.disabled = true;
+        result.innerText = "Juego terminado. Puntos: " + score;
+      }
+    }, 1000);
+  }
 
-#result {
-  font-size: 20px;
-  margin-top: 20px;
-}
+  if (time > 0) {
+    score++;
+    scoreText.innerText = score;
+  }
+};
